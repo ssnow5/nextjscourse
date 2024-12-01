@@ -1,13 +1,13 @@
-import Post from './Post';
-import classes from './PostsList.module.css';
-import NewPost from './NewPost';
-import { useState } from 'react';
-import Modal from './Modal';
+import Post from "./Post";
+import classes from "./PostsList.module.css";
+import NewPost from "./NewPost";
+import { useState } from "react";
+import Modal from "./Modal";
 
 function PostsList({ isPosting, onStopPosting }) {
   //   const [modalIsVisible, setModalIsVisible] = useState(true);
-  const [enteredBody, setEnteredBody] = useState('');
-  const [enteredAuthor, setEnteredAuthor] = useState('');
+  const [enteredBody, setEnteredBody] = useState("");
+  const [enteredAuthor, setEnteredAuthor] = useState("");
 
   //   function hideModalHandler() {
   //     setModalIsVisible(false);
@@ -50,6 +50,7 @@ function PostsList({ isPosting, onStopPosting }) {
           <NewPost
             onBodyChange={bodyChangeHandler}
             onAuthorChange={authorChangeHandler}
+            onCancel={onStopPosting}
           />
         </Modal>
       )}
