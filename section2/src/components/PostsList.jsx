@@ -5,21 +5,27 @@ import { useState } from "react";
 import Modal from "./Modal";
 
 function PostsList({ isPosting, onStopPosting }) {
+  const [posts, setPosts] = useState([]);
+
+  function addPostHandler(postData) {
+    setPosts((existingPosts) => [postData, ...existingPosts]);
+  }
+
   //   const [modalIsVisible, setModalIsVisible] = useState(true);
-  const [enteredBody, setEnteredBody] = useState("");
-  const [enteredAuthor, setEnteredAuthor] = useState("");
+  // const [enteredBody, setEnteredBody] = useState("");
+  // const [enteredAuthor, setEnteredAuthor] = useState("");
 
-  //   function hideModalHandler() {
-  //     setModalIsVisible(false);
-  //   }
+  // //   function hideModalHandler() {
+  // //     setModalIsVisible(false);
+  // //   }
 
-  function bodyChangeHandler(event) {
-    setEnteredBody(event.target.value);
-  }
+  // function bodyChangeHandler(event) {
+  //   setEnteredBody(event.target.value);
+  // }
 
-  function authorChangeHandler(event) {
-    setEnteredAuthor(event.target.value);
-  }
+  // function authorChangeHandler(event) {
+  //   setEnteredAuthor(event.target.value);
+  // }
 
   //   let modalContent;
 
@@ -48,17 +54,30 @@ function PostsList({ isPosting, onStopPosting }) {
       {isPosting && (
         <Modal onClose={onStopPosting}>
           <NewPost
-            onBodyChange={bodyChangeHandler}
-            onAuthorChange={authorChangeHandler}
+            // onBodyChange={bodyChangeHandler}
+            // onAuthorChange={authorChangeHandler}
             onCancel={onStopPosting}
+            onAddPost={addPostHandler}
           />
         </Modal>
       )}
       {/* {modalContent} */}
-      <ul className={classes.posts}>
-        <Post author={enteredAuthor} body={enteredBody} />
-        <Post author="Manuel" body="Check out the full course!" />
-      </ul>
+      {posts.length > 0 && (
+        <ul className={classes.posts}>
+          {posts.map((post) => (
+            <Post key={post.body} author={post.author} body={post.body} />
+          ))}
+
+          {/* <Post author="Manuel" body="Check out the full course!" /> */}
+        </ul>
+      )}
+
+      {posts.length === 0 && (
+        <div style={{ textAlign: "center", color: "white" }}>
+          <h2>There are no posts yet.</h2>
+          <p>Start adding some!</p>
+        </div>
+      )}
     </>
   );
 }
