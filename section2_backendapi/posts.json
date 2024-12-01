@@ -1,0 +1,11 @@
+{
+  "posts": [
+    { "body": "Test 3", "author": "Mina", "id": "0.4218682979798849" },
+    { "body": "Test", "author": "Max", "id": "0.8605459809296341" },
+    {
+      "body": "This course is hopefully very helpful to you!",
+      "author": "Maximilian",
+      "id": "post-1"
+    }
+  ]
+}
