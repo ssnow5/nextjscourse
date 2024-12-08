@@ -1,4 +1,4 @@
-// File: C:\Users\ssnow\nextjscourse-C1\section4\app\layout.js
+// File: C:\Users\ssnow\nextjscourse-TRIGKEY-SSNOW5\nextjscourse\section4\app\layout.js
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
